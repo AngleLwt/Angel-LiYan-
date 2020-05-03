@@ -115,6 +115,7 @@ Description:对这个Action的描述信息
 ![](https://upload-images.jianshu.io/upload_images/21988850-8e6823226aa06198.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
+
 ```
     id ：唯一标识，最终会通过它获取字符串 是否选中等等
     name：界面上的左边的提示语
