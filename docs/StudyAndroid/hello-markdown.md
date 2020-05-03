@@ -37,8 +37,7 @@ pt（磅）
 （3）singleTask: Task内单例模式
 （4）singleInstance: 全局单例模式（新的Task，且次Task只包含这个Activity）。
 **在AndroidManifest.xml中，设置launchMode
-**<activity android:name=".SecondActivity" android:label="@string/app_name" android:launchMode="singleTask"></activity>
-
+**<activity android:name=".SecondActivity" android:label="@string/app_name" android:launchMode="singleTask"></activity>**
 八、Fragment为Activity的片段，拥有自己的声明周期，也可以接受它自己的输入事件。必须“嵌入”Activity中使用。
 
 子类：
