@@ -112,7 +112,8 @@ Description:对这个Action的描述信息
 选择这个Action即将存在的位置
 添加完模板变量后导出，重启 IDE 选择导入该模板，此时便能看到刚才配置的两个变量，你可以输入不同的值来验证模板的正确性。
 //设置模版样式
-![](https://upload-images.jianshu.io/upload_images/21988850-59d9e208d6b0d398.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/21988850-8e6823226aa06198.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ```
     id ：唯一标识，最终会通过它获取字符串 是否选中等等
