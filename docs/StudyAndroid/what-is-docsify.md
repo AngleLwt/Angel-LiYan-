@@ -1,4 +1,4 @@
-# Android 笔记
+# Android 笔记1
 
 ## Android修改状态栏颜色全方位教程
 在谷歌官方的material设计文档中定义了新的状态栏设计。
@@ -938,8 +938,6 @@ public class VpViewAdapter extends PagerAdapter {
 }
 
 ```
-## 动画
-
 ## Fragment用法
 ```
     //1.获得碎片管理器
