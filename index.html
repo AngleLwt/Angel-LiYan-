@@ -1,68 +1,42 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <title>Angel</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"> -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css"> -->
-  <link rel="stylesheet" href="./static/vue.css" id="theme-css">
-  <script>
-    const current_hour = (new Date()).getHours();
-    if (7 <= current_hour && current_hour < 19) {
-      document.getElementById('theme-css').href = './static/vue.css';
-    } else {
-      document.getElementById('theme-css').href = './static/theme-simple-dark.css';
-    }
-  </script>
-</head>
-<body>
-  <div id="app">Angel</div>
-  <script>
-    window.$docsify = {
-      // 文档标题，会显示在侧边栏顶部
-      name: 'Angel',
-      // 在页面右上角渲染一个 GitHub Corner 挂件
-      repo: 'excalibur/docsify-demo',
-      // 显示侧边栏
-      loadSidebar: true,
-      // 只到根目录搜索侧边栏的文件，不进去子目录
-      alias: { '/.*/_sidebar.md': '/_sidebar.md' },
-      // 侧边栏显示到文章的二级标题（起到 TOC 的作用）
-      subMaxLevel: 2,
-      // 切换页面后自动跳转到页面顶部
-      auto2top: true,
-      // 替换主题色，默认是 #3F51B5
-      themeColor: '#EF5350',
-      // 将 _sidebar.md 中的标题自动加到页面里
-      // autoHeader: true,
-      // 我们可以通过 {docsify-updated} 变量显示文档更新日期. 并且通过 formatUpdated配置日期格式。参考 https://github.com/lukeed/tinydate#patterns
-      // formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
-      // 搜索
-      search: {
-        paths: 'auto',
-        placeholder: '搜索',
-        noData: '找不到结果',
-        // 过期时间，单位毫秒，默认一天
-        maxAge: 86400000,
-        // 搜索标题的最大程级, 1 - 6 默认为 1
-        depth: 1,
-      }
-    }
-    // 启用 PWA
-    if (typeof navigator.serviceWorker !== 'undefined') {
-      navigator.serviceWorker.register('./js/sw.js')
-    }
-  </script>
-  <!-- <script src="//unpkg.com/docsify/lib/docsify.min.js"></script> -->
-  <script src="./static/docsify.min.js"></script>
-  <!-- <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script> -->
-  <script src="./static/search.min.js"></script>
-  <!-- <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script> -->
-  <script src="./static/zoom-image.min.js"></script>
-  <!-- <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script> -->
-  <script src="./static/docsify-pagination.min.js"></script>
-</body>
-</html>
+---
+layout: page
+description: "Thinking will not overcome fear but action will."
+---
+
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+        <div class="post-content-preview">
+            {{ post.content | strip_html | truncate:200 }}
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+    </p>
+</div>
+<hr>
+{% endfor %}
+
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
